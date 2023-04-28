@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '5.0.x'
 
       - name: Build and publish .NET Core project
-        run: dotnet publish -c Release -o ${{ hafizkamranarshad/test.git }}/publish
+        run: dotnet publish -c Release -o ${{ github.workspace }}/publish
 
       - name: Deploy to Windows Server
         uses: appleboy/scp-action@master
@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: '${{ hafizkamranarshad/test.git }}/publish/*'
+          source: '${{ github.workspace }}/publish/*'
           target: '/var/www/html/myapp/'
           script: |
             $ErrorActionPreference = "Stop"
