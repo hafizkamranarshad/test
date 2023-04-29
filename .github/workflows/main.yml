@@ -1,0 +1,20 @@
+name: Windows Self-Hosted Runner Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0'
+    - name: restore
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: watch
+      run: dotnet watch run   #Visit http://localhost:5000 in the browser
