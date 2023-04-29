@@ -15,7 +15,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release
-    - name: Group of log lines
-        run:|echo "Visit http://localhost:5000 in the browser"
     - name: watch
-      run: dotnet watch run
+      run: dotnet watch run    #Visit http://localhost:5000 in the browser
