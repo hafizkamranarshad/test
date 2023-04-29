@@ -1,6 +1,6 @@
 name: Windows Self-Hosted Runner Workflow
 
-on: [push]
+on: push
 
 jobs:
   build:
